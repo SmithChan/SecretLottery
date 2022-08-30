@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HandleMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "safe_transfer_from"
+      ],
+      "properties": {
+        "safe_transfer_from": {
+          "type": "object",
+          "required": [
+            "from",
+            "to",
+            "token_id"
+          ],
+          "properties": {
+            "from": {
+              "$ref": "#/definitions/HumanAddr"
+            },
+            "to": {
+              "$ref": "#/definitions/HumanAddr"
+            },
+            "token_id": {
+              "type": "integer",
+              "format": "uint32",
+              "minimum": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "buy_ticket"
+      ],
+      "properties": {
+        "buy_ticket": {
+          "type": "object",
+          "required": [
+            "token_id"
+          ],
+          "properties": {
+            "token_id": {
+              "type": "integer",
+              "format": "uint32",
+              "minimum": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "end_lottery"
+      ],
+      "properties": {
+        "end_lottery": {
+          "type": "object"
+        }
+      }
+    }
+  ],
+  "definitions": {
+    "HumanAddr": {
+      "type": "string"
+    }
+  }
+}
